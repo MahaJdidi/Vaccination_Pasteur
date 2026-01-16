@@ -16,13 +16,18 @@ The system uses OAuth2 authentication, role-based access control, and PostgreSQL
 - OAuth2 & JWT Authentication
 - Pydantic
 - Swagger UI (OpenAPI)
+- Docker & Docker Compose
 
 ## Features
-- User management (citizen / admin)
-- Appointment scheduling
-- Vaccination tracking
-- Vaccine management
+- User authentication (JWT)
+- Role-based access (Admin / User)
+- Vaccination appointment booking
+- Vaccine and vaccination management
 - Awareness articles
+- PostgreSQL database
+- Alembic migrations
+- Dockerized deployment
+- Interactive API documentation with Swagger
 
 
 ## 🔐 Authentication & Authorization
@@ -37,11 +42,13 @@ The application uses OAuth2 with JWT tokens for authentication.
 Access to endpoints is controlled using FastAPI dependencies.
 
 
+## Run Locally with Docker
+
+docker compose up --build
+API available at: http://localhost:8000
+Swagger UI: http://localhost:8000/docs
+
 
 ## 🗄️ Database & Migrations
 
-The project uses PostgreSQL as the database and Alembic for schema migrations.
-
-### Create migration:
-```bash
-alembic revision --autogenerate -m "initial tables"
+Migrations are handled automatically at container startup using Alembic.
